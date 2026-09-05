@@ -1,0 +1,37 @@
+{
+  "name": "user-app",
+  "version": "0.1.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --port 3000",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint --max-warnings 0",
+    "check-types": "next typegen && tsc --noEmit"
+  },
+  "dependencies": {
+    "@repo/db": "*",
+    "@repo/store": "*",
+    "@repo/ui": "*",
+    "@tailwindcss/postcss": "^4.3.3",
+    "bcryptjs": "^3.0.3",
+    "next": "16.3.0",
+    "next-auth": "^4.24.15",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "*",
+    "@repo/typescript-config": "*",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/node": "^22.15.3",
+    "@types/react": "19.2.2",
+    "@types/react-dom": "19.2.2",
+    "autoprefixer": "^10.5.4",
+    "eslint": "^9.39.1",
+    "postcss": "^8.5.26",
+    "tailwindcss": "^4.3.3",
+    "typescript": "5.9.2"
+  }
+}

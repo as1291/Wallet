@@ -1,0 +1,23 @@
+{
+  "name": "@repo/store",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "main": "./src/index.js",
+  "types": "./src/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    ".": "./src/index.ts",
+    "./useBalance": "./src/hooks/useBalance.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^26.2.0",
+    "typescript": "^7.0.2"
+  },
+  "dependencies": {
+    "zustand": "^5.0.15"
+  }
+}

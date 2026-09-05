@@ -1,0 +1,21 @@
+"use client"
+import { signIn, signOut, useSession } from "next-auth/react"
+import { AppBar } from "@repo/ui/AppBar"
+import { useRouter } from "next/navigation"
+import App from "next/app";
+
+export function AppbarClient() {
+    const session = useSession();
+    const router = useRouter();
+
+    return (
+        <div>
+            <AppBar user={session.data?.user}
+                onSignin={signIn}
+                onSignout={async () => {
+                    await signOut()
+                    router.push("/api/auth/signin")
+                }} />
+        </div>
+    )
+}
