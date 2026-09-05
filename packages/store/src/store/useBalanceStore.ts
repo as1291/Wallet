@@ -9,7 +9,7 @@ interface BalanceStore {
 }
 
 export const useBalanceStore = create<BalanceStore>((set) => ({
-  balance: 0,
+  balance: 100,
   setBalance: (balance) => set({ balance }),
   increment: (amount) => set((state) => ({ balance: state.balance + amount })),
   decrement: (amount) => set((state) => ({ balance: state.balance - amount })),

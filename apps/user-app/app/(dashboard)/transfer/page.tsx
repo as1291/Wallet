@@ -8,7 +8,7 @@ import { authOptions } from "../../lib/auth";
 async function getBalance() {
     const session = await getServerSession(authOptions);
     const userId = Number(session?.user?.id);
-    console.log(userId);
+    // console.log(userId);
     
     if (!userId) {
         return { amount: 0, locked: 0 };
