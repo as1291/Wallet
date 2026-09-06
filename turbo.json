@@ -9,8 +9,8 @@
       "env": [
         "DATABASE_URL",
         "NEXTAUTH_SECRET",
-        "GOOGLE_CLIENT_ID",
-        "GOOGLE_CLIENT_SECRET"
+        "GOOGLE_ID",
+        "GOOGLE_SECRET"
       ]
     },
     "lint": {
