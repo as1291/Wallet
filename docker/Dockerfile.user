@@ -6,10 +6,23 @@ COPY package.json package-lock.json turbo.json ./
 COPY apps ./apps
 COPY packages ./packages
 
-RUN npm install
+# Use npm ci instead of npm install to prevent memory crashes
+RUN npm ci
 
-RUN npm run db:migrate
+# Accept the build arguments passed from deploy.yml
+ARG DATABASE_URL
+ARG NEXTAUTH_SECRET
+ARG GOOGLE_CLIENT_ID
+ARG GOOGLE_CLIENT_SECRET
 
-RUN npm run build
+# Expose them to Next.js during the build
+ENV DATABASE_URL=$DATABASE_URL
+ENV NEXTAUTH_SECRET=$NEXTAUTH_SECRET
+ENV GOOGLE_CLIENT_ID=$GOOGLE_CLIENT_ID
+ENV GOOGLE_CLIENT_SECRET=$GOOGLE_CLIENT_SECRET
 
+# Build ONLY the user-app to save time and memory
+RUN npx turbo run build --filter=user-app...
+
+# Assuming you added "start-user-app" to your root package.json
 CMD [ "npm", "run", "start-user-app" ]
