@@ -21,8 +21,9 @@ ENV NEXTAUTH_SECRET=$NEXTAUTH_SECRET
 ENV GOOGLE_CLIENT_ID=$GOOGLE_CLIENT_ID
 ENV GOOGLE_CLIENT_SECRET=$GOOGLE_CLIENT_SECRET
 
-# Build ONLY the user-app to save time and memory
-RUN npx turbo run build --filter=user-app...
+RUN cd packages/db && npm run db:generate
+RUN cd .. && cd ..
+RUN npm run build
 
 # Assuming you added "start-user-app" to your root package.json
 CMD [ "npm", "run", "start-user-app" ]
