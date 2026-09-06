@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { useBalance } from "@repo/store/src/index";
+import { useBalance } from "@repo/store";
 
 export default function BalancePage() {
   const { balance,setBalance, increment, decrement } = useBalance();
