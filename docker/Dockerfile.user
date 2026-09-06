@@ -12,14 +12,14 @@ RUN npm ci
 # Accept the build arguments passed from deploy.yml
 ARG DATABASE_URL
 ARG NEXTAUTH_SECRET
-ARG GOOGLE_CLIENT_ID
-ARG GOOGLE_CLIENT_SECRET
+ARG GOOGLE_ID
+ARG GOOGLE_SECRET
 
 # Expose them to Next.js during the build
 ENV DATABASE_URL=$DATABASE_URL
 ENV NEXTAUTH_SECRET=$NEXTAUTH_SECRET
-ENV GOOGLE_CLIENT_ID=$GOOGLE_CLIENT_ID
-ENV GOOGLE_CLIENT_SECRET=$GOOGLE_CLIENT_SECRET
+ENV GOOGLE_ID=$GOOGLE_ID
+ENV GOOGLE_SECRET=$GOOGLE_SECRET
 
 # The three dots (...) are REQUIRED so it builds @repo/db and @repo/ui first!
 RUN npx turbo run build --filter=user-app...
