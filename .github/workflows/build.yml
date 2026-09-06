@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      
       - name: Use Node.js
         uses: actions/setup-node@v3
         with:
@@ -20,12 +21,14 @@ jobs:
 
       - name: Migrate drizzle
         run: npm run db:migrate
+        env:
+          # This MUST be the real secret, otherwise drizzle cannot connect to migrate
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
         
       - name: Run Build
         run: npm run build
         env:
-          DATABASE_URL: "postgresql://dummy:dummy@localhost:5432/dummy"
-          NEXTAUTH_SECRET: "dummy-secret-for-build"
-          NEXTAUTH_URL: "http://localhost:3000"
-          GOOGLE_CLIENT_ID: "dummy-google-client-id"
-          GOOGLE_CLIENT_SECRET: "dummy-google-client-secret"
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          NEXTAUTH_SECRET: ${{ secrets.NEXTAUTH_SECRET }}
+          GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
+          GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
