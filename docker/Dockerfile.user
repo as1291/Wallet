@@ -23,7 +23,7 @@ ENV GOOGLE_CLIENT_SECRET=$GOOGLE_CLIENT_SECRET
 
 RUN cd packages/db && npm run db:generate
 RUN cd .. && cd ..
-RUN npm run build
+RUN npm run build -- --filter=user-app
 
 # Assuming you added "start-user-app" to your root package.json
 CMD [ "npm", "run", "start-user-app" ]
