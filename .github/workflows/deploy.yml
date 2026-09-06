@@ -34,8 +34,8 @@ jobs:
         build-args: |
           DATABASE_URL=${{ secrets.DATABASE_URL }}
           NEXTAUTH_SECRET=${{ secrets.NEXTAUTH_SECRET }}
-          GOOGLE_CLIENT_ID=${{ secrets.GOOGLE_CLIENT_ID }}
-          GOOGLE_CLIENT_SECRET=${{ secrets.GOOGLE_CLIENT_SECRET }}
+          GOOGLE_ID=${{ secrets.GOOGLE_ID }}
+          GOOGLE_SECRET=${{ secrets.GOOGLE_SECRET }}
 
     - name: Verify Pushed Image
       run: docker pull ${{ secrets.DOCKER_USERNAME }}/wallet:latest
